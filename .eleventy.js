@@ -12,7 +12,7 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-      output: "../dist/projects/gpushortage"
+      output: "../dist/projects/gpu-shortage"
     },
     templateFormats: ['pug', 'njk', 'md']
   }
