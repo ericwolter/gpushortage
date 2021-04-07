@@ -8,7 +8,7 @@ body {
 header {
   margin: 0 auto;
   margin-top: 45px;
-  max-width: 790px;
+  max-width: 700px;
   text-align: center;
 }
 h1 {
@@ -50,6 +50,8 @@ em {
 }
 main {
   margin: 36px auto;
+  width: 90vw;
+  max-width: 1254px;
 }
 table {
   font-variant-numeric: lining-nums tabular-nums;
