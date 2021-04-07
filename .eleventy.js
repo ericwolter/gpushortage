@@ -12,9 +12,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    console.log(outputPath);
     if( outputPath && outputPath.endsWith(".html") ) {
-      console.log(outputPath);
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
@@ -22,8 +20,6 @@ module.exports = function(eleventyConfig) {
         minifyCSS: true,
         minifyJS: true,
       });
-      console.log(content);
-      console.log(minified);
       return minified;
     }
 
