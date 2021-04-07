@@ -106,6 +106,9 @@ section.text {
   font-size: 20px;
   line-height: 30px;
 }
+section.charts {
+  text-align: center;
+}
 a {
   color: #326891;
 }
