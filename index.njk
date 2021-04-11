@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>When will the NVIDIA GPU shortage end?</title>
+  <meta name="description" content="eBay price trends for NVIDIA RTX 3000 series">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   {% include "node_modules/normalize.css/normalize.css" %}
   {% include "css/style.css" %}
@@ -118,14 +120,14 @@ Unfortunately, at the time of creating this site, there is <em>no end in sightâ€
     products.forEach(p => {
       let tr = document.createElement("tr");
 
-      let h3 = document.createElement("h3");
-      h3.textContent = p.longname;
-      let h4 = document.createElement("h4")
-      h4.textContent = '7-day moving median price on eBay';
+      let h2 = document.createElement("h2");
+      h2.textContent = p.longname;
+      let h3 = document.createElement("h3")
+      h3.textContent = '7-day moving median price on eBay';
 
       let canvas = document.createElement("canvas");
+      chartContainer.appendChild(h2);
       chartContainer.appendChild(h3);
-      chartContainer.appendChild(h4);
       chartContainer.appendChild(canvas);
 
       getJSON(p.url, function (err, data) {
@@ -191,6 +193,8 @@ Unfortunately, at the time of creating this site, there is <em>no end in sightâ€
 
         var ctx = canvas.getContext('2d');
 
+        Chart.defaults.global.defaultFontFamily = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
+        Chart.defaults.global.defaultFontSize = 12
         var myLineChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -214,7 +218,6 @@ Unfortunately, at the time of creating this site, there is <em>no end in sightâ€
                   height: 30,
                   label: {
                     text: "MSRP $" + p.msrp.toFixed(2),
-                    font: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
                     fontColor: "#fff"
                   }
                 },
@@ -224,7 +227,6 @@ Unfortunately, at the time of creating this site, there is <em>no end in sightâ€
                   height: 30,
                   label: {
                     text: "Latest $" + data[data.length - 1].y.toFixed(2),
-                    font: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
                     fontColor: "#fff"
                   }
                 }                
